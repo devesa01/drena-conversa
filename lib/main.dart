@@ -1,4 +1,4 @@
-import 'package:drena_conversa/screens/login_page.dart';
+import 'package:drena_conversa/features/auth/presentation/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
