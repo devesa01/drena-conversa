@@ -10,9 +10,15 @@ class AppDimensions {
   static const double spacingL = 32.0;
   static const double spacingXL = 48.0;
 
-  // Screen
-  static const double screenPadding = 16.0;
-  static const double logoWidth = 150.0;
+  // Screen padding por plataforma
+  static const double screenPaddingMobile = 16.0;
+  static const double screenPaddingTablet = 48.0;
+  static const double screenPaddingDesktop = 80.0;
+
+  // Largura máxima do form (para não esticar em tablet/desktop)
+  static const double formMaxWidthMobile = double.infinity;
+  static const double formMaxWidthTablet = 480.0;
+  static const double formMaxWidthDesktop = 420.0;
 
   // Badge
   static const double badgePaddingX = 10.0;
