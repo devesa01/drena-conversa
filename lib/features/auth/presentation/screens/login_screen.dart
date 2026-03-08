@@ -51,13 +51,11 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppColors.backgroundBase,
       body: Stack(
         children: [
-          // Background — preenche o ecrã todo sem afetar o layout
           Container(
             decoration: const BoxDecoration(
               gradient: AppColors.backgroundGradient,
             ),
           ),
-          // Conteúdo por cima
           SafeArea(
             child: SingleChildScrollView(
               padding: EdgeInsets.all(screenPadding),
