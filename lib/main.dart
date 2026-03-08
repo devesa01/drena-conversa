@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.dark,
       initialRoute: '/login',
       routes: {
-        '/login': (context) => const LoginPage(),
+        '/login': (context) => const LoginScreen(),
       },
     );
   }
