@@ -1,47 +1,105 @@
 import 'package:flutter/material.dart';
+import '../../../../core/constants/app_colors.dart';
+import '../../../../core/constants/app_dimensions.dart';
+import '../../../../core/constants/app_strings.dart';
+import '../../../../core/utils/validators.dart';
 import '../../../../shared/widgets/custom_login_input.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  // UI elements and logic for login will go here
+class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _onLoginPressed() {
+    if (_formKey.currentState?.validate() ?? false) {
+      // TODO: chamar auth_provider / cubit
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 12, 0, 82),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Column(
+      // Fundo base preto
+      backgroundColor: AppColors.backgroundBase,
+      body: Container(
+        // Gradiente por cima do fundo
+        decoration: const BoxDecoration(
+          gradient: AppColors.backgroundGradient,
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(AppDimensions.screenPadding),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Image.asset(
-                  'assets/images/logo.png',
-                  width: 150,
-                ),
-                SizedBox(height: 32),
+                const SizedBox(height: AppDimensions.spacingS),
+                _buildTitle(),
+                const SizedBox(height: AppDimensions.spacingS),
+                _buildForm(),
               ],
             ),
-            Form(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CustomLoginInput(label: "Username"),
-                  SizedBox(height: 16),
-                  CustomLoginInput(label: "Password", obscureText: true),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
       ),
+    );
+  }
+
+  Widget _buildTitle() {
+    return Text(
+      AppStrings.loginTitle,
+      style: const TextStyle(
+        color: AppColors.textPrimary,
+        fontSize: 40,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  Widget _buildForm() {
+    return Form(
+      key: _formKey,
+      child: Column(
+        children: [
+          CustomLoginInput(
+            label: AppStrings.loginUsername,
+            controller: _usernameController,
+            validator: Validators.username,
+            textInputAction: TextInputAction.next,
+          ),
+          const SizedBox(height: AppDimensions.spacingS),
+          CustomLoginInput(
+            label: AppStrings.loginPassword,
+            controller: _passwordController,
+            validator: Validators.password,
+            obscureText: true,
+            keyboardType: TextInputType.visiblePassword,
+            textInputAction: TextInputAction.done,
+          ),
+          const SizedBox(height: AppDimensions.spacingM),
+          _buildLoginButton(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildLoginButton() {
+    return ElevatedButton(
+      onPressed: _onLoginPressed,
+      child: const Text(AppStrings.loginButton),
     );
   }
 }
