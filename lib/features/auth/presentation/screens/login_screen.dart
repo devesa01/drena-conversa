@@ -1,3 +1,4 @@
+import 'package:drena_conversa/core/constants/app_responsive.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_dimensions.dart';
@@ -32,28 +33,51 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenPadding = Responsive.value<double>(
+      context,
+      mobile: AppDimensions.screenPaddingMobile,
+      tablet: AppDimensions.screenPaddingTablet,
+      desktop: AppDimensions.screenPaddingDesktop,
+    );
+
+    final formMaxWidth = Responsive.value<double>(
+      context,
+      mobile: AppDimensions.formMaxWidthMobile,
+      tablet: AppDimensions.formMaxWidthTablet,
+      desktop: AppDimensions.formMaxWidthDesktop,
+    );
+
     return Scaffold(
-      // Fundo base preto
       backgroundColor: AppColors.backgroundBase,
-      body: Container(
-        // Gradiente por cima do fundo
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(AppDimensions.screenPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: AppDimensions.spacingS),
-                _buildTitle(),
-                const SizedBox(height: AppDimensions.spacingS),
-                _buildForm(),
-              ],
+      body: Stack(
+        children: [
+          // Background — preenche o ecrã todo sem afetar o layout
+          Container(
+            decoration: const BoxDecoration(
+              gradient: AppColors.backgroundGradient,
             ),
           ),
-        ),
+          // Conteúdo por cima
+          SafeArea(
+            child: SingleChildScrollView(
+              padding: EdgeInsets.all(screenPadding),
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: formMaxWidth),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: AppDimensions.spacingS),
+                      _buildTitle(),
+                      const SizedBox(height: AppDimensions.spacingS),
+                      _buildForm(),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

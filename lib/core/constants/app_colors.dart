@@ -10,8 +10,8 @@ class AppColors {
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,
     colors: [
-      Color(0xFF17161F), // origem
-      Color(0xFF161033), // destino
+      Color(0xFF17161F), // origem rgba(23, 22, 31, 1)
+      Color(0xFF161033), // destino rgba(22, 16, 51, 1)
     ],
   );
 
