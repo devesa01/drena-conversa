@@ -76,6 +76,9 @@ flutter:
     - family: MadeTommy
       fonts:
         - asset:  assets/fonts/MadeTommy-Extrabold.otf
-
+        - asset:  assets/fonts/MadeTommy-Regular.otf
+        - asset:  assets/fonts/MadeTommy-Thin.otf
+        
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  
