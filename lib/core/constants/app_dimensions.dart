@@ -15,11 +15,14 @@ class AppDimensions {
   static const double logoWidth = 150.0;
 
   // Badge
-  static const double badgePaddingX = 10.0;   // 0.5em ~ 10px base 20px
-  static const double badgePaddingY = 3.0;    // 0.15em ~ 3px
-  static const double badgeFontSize = 14.0;   // ~1em
+  static const double badgePaddingX = 10.0;
+  static const double badgePaddingY = 3.0;
+  static const double badgeFontSize = 14.0;   
   static const FontWeight badgeFontWeight = FontWeight.w500;
   static const double badgeBorderRadius = 20.0;
+
+  // Input
+  static const double inputBorderRadius = 10.0;
 
   // Button
   static const double buttonBorderRadius = 20.0;

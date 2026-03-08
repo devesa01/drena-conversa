@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../core/constants/app_colors.dart';
+import '../../core/constants/app_dimensions.dart';
+import '../../core/constants/app_fonts.dart';
 
 class CustomLoginInput extends StatelessWidget {
   final String label;
@@ -27,22 +29,26 @@ class CustomLoginInput extends StatelessWidget {
       validator: validator,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
-      style: const TextStyle(color: AppColors.textPrimary),
+      style: AppFonts.body,
       decoration: InputDecoration(
         labelText: label,
-        labelStyle: const TextStyle(color: AppColors.textSecondary),
-        errorStyle: const TextStyle(color: Colors.redAccent),
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.inputBorder),
+        labelStyle: AppFonts.label,
+        errorStyle: AppFonts.error,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.inputBorderRadius),
+          borderSide: const BorderSide(color: AppColors.inputBorder),
         ),
-        focusedBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.inputBorderFocused),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.inputBorderRadius),
+          borderSide: const BorderSide(color: AppColors.inputBorderFocused),
         ),
-        focusedErrorBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.redAccent),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.inputBorderRadius),
+          borderSide: const BorderSide(color: Colors.redAccent),
         ),
-        errorBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.redAccent),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppDimensions.inputBorderRadius),
+          borderSide: const BorderSide(color: Colors.redAccent),
         ),
       ),
     );
