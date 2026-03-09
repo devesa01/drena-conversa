@@ -10,6 +10,7 @@ class CustomLoginInput extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
+  final bool enabled;
 
   const CustomLoginInput({
     super.key,
@@ -19,6 +20,7 @@ class CustomLoginInput extends StatelessWidget {
     this.validator,
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
+    this.enabled = true,
   });
 
   @override
@@ -29,6 +31,7 @@ class CustomLoginInput extends StatelessWidget {
       validator: validator,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
+      enabled: enabled,
       style: AppFonts.body,
       decoration: InputDecoration(
         labelText: label,
