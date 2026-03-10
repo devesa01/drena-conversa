@@ -20,7 +20,7 @@ class AuthRepository {
       );
 
       final json = jsonDecode(response.body) as Map<String, dynamic>;
-
+      
       // Erros da API → {"avi": {"nut": X, "ppa": X}}
       if (json.containsKey('avi')) {
         final avi = json['avi'] as Map<String, dynamic>;
