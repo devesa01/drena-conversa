@@ -35,4 +35,9 @@ class AppColors {
 
   // Badge
   static const Color badgeText = Colors.white;
+
+  // Navigation
+  static const Color navActive = Color(0xFF6C4FFF);
+  static const Color navInactive = Colors.white38;
+  static const Color navIndicator = Color(0x336C4FFF); // 20% opacidade
 }
