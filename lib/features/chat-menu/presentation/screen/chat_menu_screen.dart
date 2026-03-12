@@ -44,12 +44,12 @@ class ChatMenuScreen extends ConsumerWidget {
       children: [
         const SizedBox(height: AppDimensions.spacingS),
         Text(
-          'Olá,',
-          style: AppFonts.body,
+          'Conversas',
+          style: AppFonts.title,
         ),
         Text(
           nut ?? '',
-          style: AppFonts.title,
+          style: AppFonts.body,
         ),
         const SizedBox(height: AppDimensions.spacingM),
       ],

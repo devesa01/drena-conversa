@@ -23,7 +23,7 @@ class AppDimensions {
   // Badge
   static const double badgePaddingX = 10.0;
   static const double badgePaddingY = 3.0;
-  static const double badgeFontSize = 14.0;   
+  static const double badgeFontSize = 14.0;
   static const FontWeight badgeFontWeight = FontWeight.w500;
   static const double badgeBorderRadius = 20.0;
 
@@ -33,4 +33,7 @@ class AppDimensions {
   // Button
   static const double buttonBorderRadius = 20.0;
   static const double buttonBorderWidth = 1.5;
+
+  // Navigation
+  static const double bottomNavHeight = 60.0;
 }
