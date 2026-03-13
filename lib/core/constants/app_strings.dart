@@ -20,4 +20,8 @@ class AppStrings {
   // Other error messages
   static const errorNetwork = 'Network error. Please check your connection and try again.';
   static const errorUnknown = 'An unknown error occurred. Please try again later.';
+
+
+  // Chat Menu
+  static const newChatButton = 'Nova conversa';
 }
